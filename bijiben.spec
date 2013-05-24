@@ -1,11 +1,11 @@
 Summary:	Note editor designed to remain simple to use
 Name:		bijiben
-Version:	3.8.0
-Release:	2
+Version:	3.8.2
+Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://download.gnome.org/sources/bijiben/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	0c348e68f06bbb592123861216e82afb
+# Source0-md5:	f8e32408a3b7d8c9b6d17af76b29beee
 URL:		https://live.gnome.org/Bijiben
 BuildRequires:	clutter-gtk-devel
 BuildRequires:	gtk+3-webkit-devel
