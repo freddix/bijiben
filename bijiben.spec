@@ -1,16 +1,16 @@
 Summary:	Note editor designed to remain simple to use
 Name:		bijiben
-Version:	3.8.4
+Version:	3.10.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://download.gnome.org/sources/bijiben/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	9e102784975c2c957d2d7738c31374b1
+Source0:	http://download.gnome.org/sources/bijiben/3.10/%{name}-%{version}.tar.xz
+# Source0-md5:	dfcd772f0a8422a1809208ef64020b29
 URL:		https://live.gnome.org/Bijiben
 BuildRequires:	clutter-gtk-devel
-BuildRequires:	gtk+3-webkit-devel
+BuildRequires:	gtk+3-webkit-devel >= 2.2.0
 BuildRequires:	libxml2-devel
-BuildRequires:	libzeitgeist-devel
+BuildRequires:	pkgconfig(zeitgeist-2.0)
 BuildRequires:	pkg-config
 BuildRequires:	tracker-devel
 Requires(post,postun):	/usr/bin/gtk-update-icon-cache
@@ -32,7 +32,8 @@ Note editor designed to remain simple to use.
 %build
 %configure \
 	--disable-schemas-compile	\
-	--disable-silent-rules
+	--disable-silent-rules		\
+	--disable-update-mimedb
 %{__make}
 
 %install
@@ -50,11 +51,13 @@ rm -rf $RPM_BUILD_ROOT
 %update_gsettings_cache
 %update_icon_cache hicolor
 %update_desktop_database
+%update_mime_database
 
 %postun
 %update_gsettings_cache
 %update_icon_cache hicolor
 %update_desktop_database
+%update_mime_database
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
@@ -63,6 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/bijiben
 %{_datadir}/dbus-1/services/org.gnome.Bijiben.SearchProvider.service
 %{_datadir}/glib-2.0/schemas/org.gnome.bijiben.gschema.xml
+%{_datadir}/mime/packages/bijiben.xml
 %{_desktopdir}/bijiben.desktop
 %{_iconsdir}/hicolor/*/apps/bijiben.*
 
