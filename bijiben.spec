@@ -1,17 +1,18 @@
 Summary:	Note editor designed to remain simple to use
 Name:		bijiben
-Version:	3.10.1
+Version:	3.10.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://download.gnome.org/sources/bijiben/3.10/%{name}-%{version}.tar.xz
-# Source0-md5:	543755c525057ee5bc6cf9f8dde0c243
+# Source0-md5:	2d2ec353d50cf9ff6da7784ce0882381
 URL:		https://live.gnome.org/Bijiben
 BuildRequires:	clutter-gtk-devel
+BuildRequires:	gnome-online-accounts-devel
 BuildRequires:	gtk+3-webkit-devel >= 2.2.0
 BuildRequires:	libxml2-devel
-BuildRequires:	pkgconfig(zeitgeist-2.0)
 BuildRequires:	pkg-config
+BuildRequires:	pkgconfig(zeitgeist-2.0)
 BuildRequires:	tracker-devel
 Requires(post,postun):	/usr/bin/gtk-update-icon-cache
 Requires(post,postun):	glib-gio-gsettings
